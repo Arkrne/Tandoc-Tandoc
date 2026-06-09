@@ -9,7 +9,7 @@ import Divider from "@/components/Divider";
 
 export default function Home() {
   return (
-    <main className="bg-surface pt-[114px]">
+    <main className="bg-surface pt-[82px] md:pt-[114px]">
       <Navbar />
       <Hero />
       <Divider />

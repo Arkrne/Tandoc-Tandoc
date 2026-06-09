@@ -32,14 +32,14 @@ export default function Hero() {
           viewport={{ once: true }}
           className="w-24 h-[1px] bg-[#b89758] mx-auto mb-8"
         />
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true }}
-          className="font-headline-display text-[64px] text-primary-container mb-[var(--spacing-gutter)] max-w-5xl mx-auto leading-[1.1] font-semibold"
+          className="font-headline-display text-4xl sm:text-5xl md:text-[64px] text-primary-container mb-[var(--spacing-gutter)] max-w-5xl mx-auto leading-[1.1] font-semibold"
         >
-          <span className="text-[80px]">Tandoc & Tandoc:</span><br />
+          <span className="text-5xl sm:text-6xl md:text-[80px]">Tandoc & Tandoc:</span><br />
           Where Strategy Meets the Law.
         </motion.h1>
         <motion.p 

@@ -77,7 +77,7 @@ function HoverFooter() {
     <footer className="relative bg-[#1b325f] text-white overflow-hidden mt-[var(--spacing-section-gap)] border-t border-[#b89758]/30">
       <FooterBackgroundGradient />
       
-      <div className="max-w-[var(--spacing-content-max-width)] mx-auto p-14 z-40 relative">
+      <div className="max-w-[var(--spacing-content-max-width)] mx-auto p-6 sm:p-10 lg:p-14 z-40 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
           <div className="flex flex-col space-y-4">

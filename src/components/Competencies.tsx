@@ -35,6 +35,10 @@ const competencies = [
 
 export default function Competencies() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const isExpanded = (index: number) =>
+    hoveredIndex === index || activeIndex === index;
 
   return (
     <motion.section 
@@ -55,16 +59,17 @@ export default function Competencies() {
         {/* Framing the entire block */}
         <div className="flex flex-col border border-hairline border-[#1b325f]">
           {competencies.map((comp, index) => (
-            <motion.div 
+            <motion.div
               key={comp.id}
               className={`relative w-full overflow-hidden cursor-pointer group ${
                 index !== competencies.length - 1 ? 'border-b border-hairline border-[#b89758]/50' : ''
               }`}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
+              onClick={() => setActiveIndex(activeIndex === index ? null : index)}
               animate={{
-                height: hoveredIndex === index ? 320 : 120,
-                borderColor: hoveredIndex === index ? "#b89758" : "transparent"
+                height: isExpanded(index) ? 320 : 120,
+                borderColor: isExpanded(index) ? "#b89758" : "transparent"
               }}
               initial={{ height: 120 }}
               transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
@@ -82,19 +87,19 @@ export default function Competencies() {
               />
 
               {/* Content Layer */}
-              <div className="relative z-20 h-full flex flex-col px-12 overflow-hidden">
-                
+              <div className="relative z-20 h-full flex flex-col px-4 sm:px-8 md:px-12 overflow-hidden">
+
                 {/* Header */}
                 <div className="flex items-center justify-between h-[120px] shrink-0">
-                  <div className="flex items-center gap-8">
-                    <span className="font-['Noto_Serif'] text-4xl text-[#b89758] w-12">{comp.roman}</span>
-                    <h3 className="font-['Noto_Serif'] text-3xl md:text-4xl text-white font-semibold">{comp.title}</h3>
+                  <div className="flex items-center gap-3 sm:gap-6 md:gap-8 min-w-0">
+                    <span className="font-['Noto_Serif'] text-2xl sm:text-4xl text-[#b89758] w-8 sm:w-12 shrink-0">{comp.roman}</span>
+                    <h3 className="font-['Noto_Serif'] text-lg sm:text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-tight">{comp.title}</h3>
                   </div>
-                  <motion.span 
-                    className="material-symbols-outlined text-4xl text-[#b89758]"
-                    animate={{ 
-                        rotate: hoveredIndex === index ? 45 : 0,
-                        scale: hoveredIndex === index ? 1.2 : 1 
+                  <motion.span
+                    className="material-symbols-outlined text-2xl sm:text-4xl text-[#b89758] shrink-0 ml-2"
+                    animate={{
+                      rotate: isExpanded(index) ? 45 : 0,
+                      scale: isExpanded(index) ? 1.2 : 1
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -103,12 +108,12 @@ export default function Competencies() {
                 </div>
 
                 {/* Reveal Content */}
-                <motion.div 
+                <motion.div
                   className="max-w-xl"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
-                    opacity: hoveredIndex === index ? 1 : 0,
-                    y: hoveredIndex === index ? 0 : 20,
+                  animate={{
+                    opacity: isExpanded(index) ? 1 : 0,
+                    y: isExpanded(index) ? 0 : 20,
                   }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
                 >

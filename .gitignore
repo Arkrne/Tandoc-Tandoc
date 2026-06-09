@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# local analysis artifacts
+.claude/
+/*.png
+stitch_tandoc_law_firm_landing/
+Photos/
+
 # dependencies
 /node_modules
 /.pnp

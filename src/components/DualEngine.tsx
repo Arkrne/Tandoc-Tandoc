@@ -22,7 +22,7 @@ export default function DualEngine() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         {/* Left Typography Side */}
         <motion.div {...staggeredItem} className="md:col-span-7 relative">
-          <div className="absolute -left-6 -top-8 text-[#b89758] opacity-15 font-['Noto_Serif'] text-[12rem] leading-none select-none pointer-events-none">
+          <div className="hidden sm:block absolute -left-6 -top-8 text-[#b89758] opacity-15 font-['Noto_Serif'] text-[12rem] leading-none select-none pointer-events-none">
             "
           </div>
           

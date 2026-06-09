@@ -94,11 +94,36 @@
   --radius-full: 0px;
 }
 
+/* Responsive spacing — override @theme defaults per breakpoint */
+:root {
+  --spacing-margin-page: 16px;
+  --spacing-section-gap: 60px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --spacing-margin-page: 32px;
+    --spacing-section-gap: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --spacing-margin-page: 64px;
+    --spacing-section-gap: 120px;
+  }
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--color-surface);
   color: var(--color-on-surface);
   font-family: var(--font-body-md);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::selection {
